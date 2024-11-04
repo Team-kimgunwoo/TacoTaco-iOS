@@ -14,7 +14,10 @@ struct HomeView: View {
         span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
     )
     @State var showProfile: Bool = false
-
+    
+    let phoneNumber = "010-3009-0642"
+    let messageNumber = "010-3009-0642"
+    
     var body: some View {
         ZStack {
             VStack {
@@ -94,13 +97,17 @@ struct HomeView: View {
                             }
                             
                             Button {
-                                
+                                if let url = URL(string: "tel://\(phoneNumber)"), UIApplication.shared.canOpenURL(url) {
+                                    UIApplication.shared.open(url)
+                                }
                             } label: {
                                 Image("call")
                             }
                             
                             Button {
-                                
+                                if let url = URL(string: "sms:\(messageNumber)"), UIApplication.shared.canOpenURL(url) {
+                                    UIApplication.shared.open(url)
+                                }
                             } label: {
                                 Image("message")
                             }
