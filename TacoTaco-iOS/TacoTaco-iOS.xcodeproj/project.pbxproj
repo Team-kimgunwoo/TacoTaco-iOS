@@ -27,6 +27,7 @@
 		42C824FA2CD06BE900B0AEB2 /* RefreshModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C824F92CD06BE900B0AEB2 /* RefreshModel.swift */; };
 		42C824FC2CD06C9A00B0AEB2 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C824FB2CD06C9A00B0AEB2 /* SignUpView.swift */; };
 		42C824FE2CD06CA500B0AEB2 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C824FD2CD06CA500B0AEB2 /* SignUpViewModel.swift */; };
+		42C825032CD8660300B0AEB2 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C825022CD8660300B0AEB2 /* LocationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		42C824F92CD06BE900B0AEB2 /* RefreshModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshModel.swift; sourceTree = "<group>"; };
 		42C824FB2CD06C9A00B0AEB2 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		42C824FD2CD06CA500B0AEB2 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		42C825022CD8660300B0AEB2 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 				42C824ED2CCF3B3C00B0AEB2 /* Info.plist */,
 				42C824C62CCF347500B0AEB2 /* TacoTaco_iOSApp.swift */,
 				42C824C82CCF347500B0AEB2 /* ContentView.swift */,
+				42C825012CD865F200B0AEB2 /* Manager */,
 				42C824EE2CCF3B7C00B0AEB2 /* Components */,
 				42C824DF2CCF398800B0AEB2 /* Plists */,
 				42C824D82CCF358600B0AEB2 /* Ext */,
@@ -172,6 +175,14 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		42C825012CD865F200B0AEB2 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				42C825022CD8660300B0AEB2 /* LocationManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -250,6 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				42C824C92CCF347500B0AEB2 /* ContentView.swift in Sources */,
+				42C825032CD8660300B0AEB2 /* LocationManager.swift in Sources */,
 				42C824FC2CD06C9A00B0AEB2 /* SignUpView.swift in Sources */,
 				42C824FE2CD06CA500B0AEB2 /* SignUpViewModel.swift in Sources */,
 				42C824E52CCF3ACE00B0AEB2 /* SignInViewModel.swift in Sources */,
@@ -402,6 +414,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "TacoTaco-iOS/Info.plist";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "현재 위치를 사용하려면 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -432,6 +445,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "TacoTaco-iOS/Info.plist";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "현재 위치를 사용하려면 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
