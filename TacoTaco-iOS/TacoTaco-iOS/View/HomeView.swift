@@ -61,7 +61,7 @@ struct HomeView: View {
                         Image("baseProfile")
                     }
                     .sheet(isPresented: $showProfile) {
-                        Text("프로필")
+                        MypageView()
                     }
                 }
                 .padding(.horizontal, 30)

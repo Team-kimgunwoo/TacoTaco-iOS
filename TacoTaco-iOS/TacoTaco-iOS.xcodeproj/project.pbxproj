@@ -28,6 +28,7 @@
 		42C824FC2CD06C9A00B0AEB2 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C824FB2CD06C9A00B0AEB2 /* SignUpView.swift */; };
 		42C824FE2CD06CA500B0AEB2 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C824FD2CD06CA500B0AEB2 /* SignUpViewModel.swift */; };
 		42C825032CD8660300B0AEB2 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C825022CD8660300B0AEB2 /* LocationManager.swift */; };
+		603695092CDB298E0091ED73 /* MypageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603695082CDB298E0091ED73 /* MypageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		42C824FB2CD06C9A00B0AEB2 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		42C824FD2CD06CA500B0AEB2 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		42C825022CD8660300B0AEB2 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		603695082CDB298E0091ED73 /* MypageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 				42C824EB2CCF3B0F00B0AEB2 /* SignInView.swift */,
 				42C824F52CD06AB700B0AEB2 /* HomeView.swift */,
 				42C824FB2CD06C9A00B0AEB2 /* SignUpView.swift */,
+				603695082CDB298E0091ED73 /* MypageView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 				42C824C92CCF347500B0AEB2 /* ContentView.swift in Sources */,
 				42C825032CD8660300B0AEB2 /* LocationManager.swift in Sources */,
 				42C824FC2CD06C9A00B0AEB2 /* SignUpView.swift in Sources */,
+				603695092CDB298E0091ED73 /* MypageView.swift in Sources */,
 				42C824FE2CD06CA500B0AEB2 /* SignUpViewModel.swift in Sources */,
 				42C824E52CCF3ACE00B0AEB2 /* SignInViewModel.swift in Sources */,
 				42C824F02CCF3B9800B0AEB2 /* InputField.swift in Sources */,
