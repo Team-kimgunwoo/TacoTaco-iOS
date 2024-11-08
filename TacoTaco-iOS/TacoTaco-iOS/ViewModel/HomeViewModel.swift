@@ -74,4 +74,21 @@ class HomeViewModel: ObservableObject {
             UIApplication.shared.open(url)
         }
     }
+    
+    func sendTouchRequest() {
+        guard let token = KeyChain.read()?.accessToken else {
+            print("accessToken을 찾을 수 없습니다.")
+            return
+        }
+
+        let headers: HTTPHeaders = ["Authorization": "Bearer \(token)"]
+        AF.request("\(Bundle.main.url)/fcm", method: .post, headers: headers).responseJSON { response in
+            switch response.result {
+            case .success(let data):
+                print("터치 요청 성공:", data)
+            case .failure(let error):
+                print("터치 요청 중 오류 발생:", error)
+            }
+        }
+    }
 }

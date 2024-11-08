@@ -73,7 +73,7 @@ struct HomeView: View {
                                     .foregroundColor(.black)
                             }
                             Spacer()
-                            Button { /* Touch action */ } label: { Image("touch") }
+                            Button { viewModel.sendTouchRequest() } label: { Image("touch") }
                             Button { viewModel.makeCall() } label: { Image("call") }
                             Button { viewModel.sendMessage() } label: { Image("message") }
                         }
@@ -86,7 +86,6 @@ struct HomeView: View {
                 viewModel.updateUserLocation(coordinate)
             }
             viewModel.fetchServerLocation()
-            
             if locationManager.isAuthorized, let coordinate = locationManager.location {
                 viewModel.updateUserLocation(coordinate)
             }
