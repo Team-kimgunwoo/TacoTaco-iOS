@@ -49,6 +49,7 @@ struct HomeView: View {
                     }
                     .sheet(isPresented: $showProfile) {
                         MypageView()
+                            .presentationDetents([.height(650)])
                     }
                 }
                 .padding(.horizontal, 30)
@@ -95,5 +96,7 @@ struct HomeView: View {
 
 
 #Preview {
-    HomeView()
+    NavigationView {
+        HomeView()
+    }
 }
