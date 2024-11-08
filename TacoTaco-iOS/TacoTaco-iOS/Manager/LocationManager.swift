@@ -3,38 +3,27 @@ import MapKit
 import CoreLocation
 
 class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
-    private let locationManager = CLLocationManager()
-    @Published var location: CLLocationCoordinate2D?
+    private let manager = CLLocationManager()
     @Published var isAuthorized = false
-
+    @Published var location: CLLocationCoordinate2D?
+    
     override init() {
         super.init()
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        requestLocationAuthorization()
+        manager.delegate = self
+        manager.requestWhenInUseAuthorization()
     }
-
-    func requestLocationAuthorization() {
-        locationManager.requestWhenInUseAuthorization()
-    }
-
-    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        DispatchQueue.main.async {
-            let status = manager.authorizationStatus
-            self.isAuthorized = (status == .authorizedWhenInUse || status == .authorizedAlways)
-            
-            if self.isAuthorized {
-                self.locationManager.startUpdatingLocation()
-            } else {
-                self.locationManager.stopUpdatingLocation()
-            }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        isAuthorized = (status == .authorizedWhenInUse || status == .authorizedAlways)
+        if isAuthorized {
+            manager.startUpdatingLocation()
         }
     }
-
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.last else { return }
-        DispatchQueue.main.async {
-            self.location = location.coordinate
+        if let newLocation = locations.first {
+            location = newLocation.coordinate
+            manager.stopUpdatingLocation()
         }
     }
 }
