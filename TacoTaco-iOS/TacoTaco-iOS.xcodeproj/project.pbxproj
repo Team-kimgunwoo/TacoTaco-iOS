@@ -32,6 +32,8 @@
 		6074465A2CDDA9AE00C6D074 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607446592CDDA9AE00C6D074 /* HomeViewModel.swift */; };
 		6074465E2CE19E5500C6D074 /* MypageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6074465D2CE19E5500C6D074 /* MypageViewModel.swift */; };
 		607446602CE19E6400C6D074 /* MypageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6074465F2CE19E6400C6D074 /* MypageModel.swift */; };
+		607446622CE1A5EA00C6D074 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 607446612CE1A5EA00C6D074 /* GoogleService-Info.plist */; };
+		607446652CE1A67200C6D074 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 607446642CE1A67200C6D074 /* FirebaseAnalytics */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +63,7 @@
 		607446592CDDA9AE00C6D074 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		6074465D2CE19E5500C6D074 /* MypageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewModel.swift; sourceTree = "<group>"; };
 		6074465F2CE19E6400C6D074 /* MypageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageModel.swift; sourceTree = "<group>"; };
+		607446612CE1A5EA00C6D074 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				607446652CE1A67200C6D074 /* FirebaseAnalytics in Frameworks */,
 				42C824E82CCF3AF900B0AEB2 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -94,6 +98,7 @@
 		42C824C52CCF347500B0AEB2 /* TacoTaco-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				607446612CE1A5EA00C6D074 /* GoogleService-Info.plist */,
 				42C824ED2CCF3B3C00B0AEB2 /* Info.plist */,
 				42C824C62CCF347500B0AEB2 /* TacoTaco_iOSApp.swift */,
 				42C824C82CCF347500B0AEB2 /* ContentView.swift */,
@@ -213,6 +218,7 @@
 			name = "TacoTaco-iOS";
 			packageProductDependencies = (
 				42C824E72CCF3AF900B0AEB2 /* Alamofire */,
+				607446642CE1A67200C6D074 /* FirebaseAnalytics */,
 			);
 			productName = "TacoTaco-iOS";
 			productReference = 42C824C32CCF347500B0AEB2 /* TacoTaco-iOS.app */;
@@ -244,6 +250,7 @@
 			mainGroup = 42C824BA2CCF347500B0AEB2;
 			packageReferences = (
 				42C824E62CCF3AF900B0AEB2 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				607446632CE1A67200C6D074 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 42C824C42CCF347500B0AEB2 /* Products */;
 			projectDirPath = "";
@@ -260,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				42C824CE2CCF347600B0AEB2 /* Preview Assets.xcassets in Resources */,
+				607446622CE1A5EA00C6D074 /* GoogleService-Info.plist in Resources */,
 				42C824CB2CCF347600B0AEB2 /* Assets.xcassets in Resources */,
 				42C824E12CCF399500B0AEB2 /* ApiContent.plist in Resources */,
 			);
@@ -512,6 +520,14 @@
 				minimumVersion = 5.10.1;
 			};
 		};
+		607446632CE1A67200C6D074 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.4.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -519,6 +535,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 42C824E62CCF3AF900B0AEB2 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		607446642CE1A67200C6D074 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 607446632CE1A67200C6D074 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
