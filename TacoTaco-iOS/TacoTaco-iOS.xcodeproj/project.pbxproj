@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		425C8F792CE46A7100422413 /* FcmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425C8F782CE46A7100422413 /* FcmModel.swift */; };
 		42C824C72CCF347500B0AEB2 /* TacoTaco_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C824C62CCF347500B0AEB2 /* TacoTaco_iOSApp.swift */; };
 		42C824C92CCF347500B0AEB2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C824C82CCF347500B0AEB2 /* ContentView.swift */; };
 		42C824CB2CCF347600B0AEB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42C824CA2CCF347600B0AEB2 /* Assets.xcassets */; };
@@ -42,6 +43,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		425C8F772CE467EE00422413 /* TacoTaco-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "TacoTaco-iOS.entitlements"; sourceTree = "<group>"; };
+		425C8F782CE46A7100422413 /* FcmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FcmModel.swift; sourceTree = "<group>"; };
 		42C824C32CCF347500B0AEB2 /* TacoTaco-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TacoTaco-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		42C824C62CCF347500B0AEB2 /* TacoTaco_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TacoTaco_iOSApp.swift; sourceTree = "<group>"; };
 		42C824C82CCF347500B0AEB2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -108,6 +111,7 @@
 		42C824C52CCF347500B0AEB2 /* TacoTaco-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				425C8F772CE467EE00422413 /* TacoTaco-iOS.entitlements */,
 				607446612CE1A5EA00C6D074 /* GoogleService-Info.plist */,
 				42C824ED2CCF3B3C00B0AEB2 /* Info.plist */,
 				42C824C62CCF347500B0AEB2 /* TacoTaco_iOSApp.swift */,
@@ -143,6 +147,7 @@
 				42C824F32CD06A6C00B0AEB2 /* StatusModel.swift */,
 				42C824F92CD06BE900B0AEB2 /* RefreshModel.swift */,
 				6074465F2CE19E6400C6D074 /* MypageModel.swift */,
+				425C8F782CE46A7100422413 /* FcmModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -301,6 +306,7 @@
 				42C824FC2CD06C9A00B0AEB2 /* SignUpView.swift in Sources */,
 				603695092CDB298E0091ED73 /* MypageView.swift in Sources */,
 				42C824FE2CD06CA500B0AEB2 /* SignUpViewModel.swift in Sources */,
+				425C8F792CE46A7100422413 /* FcmModel.swift in Sources */,
 				42C824E52CCF3ACE00B0AEB2 /* SignInViewModel.swift in Sources */,
 				42C824F02CCF3B9800B0AEB2 /* InputField.swift in Sources */,
 				42C824E32CCF3A6C00B0AEB2 /* SignInRequest.swift in Sources */,
@@ -446,14 +452,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "TacoTaco-iOS/TacoTaco-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TacoTaco-iOS/Preview Content\"";
-				DEVELOPMENT_TEAM = ZTJ578GV68;
+				DEVELOPMENT_TEAM = H3PHX39629;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "TacoTaco-iOS/Info.plist";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "현재 위치를 사용하려면 권한이 필요합니다.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "앱 사용 중 현재 위치를 가져오려면 위치 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -477,14 +485,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "TacoTaco-iOS/TacoTaco-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TacoTaco-iOS/Preview Content\"";
-				DEVELOPMENT_TEAM = ZTJ578GV68;
+				DEVELOPMENT_TEAM = H3PHX39629;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "TacoTaco-iOS/Info.plist";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "현재 위치를 사용하려면 권한이 필요합니다.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "앱 사용 중 현재 위치를 가져오려면 위치 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct SignInView: View {
-    @StateObject var viewModel = SignInViewModel()
+    @StateObject var viewModel = SignInViewModel.shared
     
     var body: some View {
         VStack {
@@ -44,6 +44,9 @@ struct SignInView: View {
             .font(.system(size: 13))
             .padding(.bottom, 20)
             .padding(.top, 5)
+        }
+        .onAppear {
+            print("느금마 \(viewModel.fcm)")
         }
     }
 }

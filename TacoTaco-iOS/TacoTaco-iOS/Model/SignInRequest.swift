@@ -7,7 +7,8 @@ struct SignInRequest: Codable {
     var params: [String: Any] {
         return [
             "email": email,
-            "password": password
+            "password": password,
+            "fcmToken": SignInViewModel.shared.fcm
         ]
     }
 }
