@@ -68,7 +68,7 @@ struct HomeView: View {
                                 Text("지금 건우는?")
                                     .font(.system(size: 15, weight: .medium))
                                     .foregroundColor(.accentColor)
-                                Text("내 위치로부터 1.7km")
+                                Text(viewModel.distanceText)
                                     .font(.system(size: 12, weight: .light))
                                     .foregroundColor(.black)
                             }

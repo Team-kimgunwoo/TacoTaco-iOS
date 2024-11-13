@@ -7,42 +7,59 @@ class HomeViewModel: ObservableObject {
     @Published var region: MKCoordinateRegion
     @Published var serverCoordinate: CLLocationCoordinate2D?
     @Published var annotationItems: [Item] = []
-
+    @Published var distanceText: String = ""
+    
     struct Item: Identifiable {
         var id = UUID()
         var coordinate: CLLocationCoordinate2D
         var isUserLocation: Bool
     }
-
+    
     private let phoneNumber = "010-3009-0642"
     private let messageNumber = "010-3009-0642"
-
+    
+    // 초기화 메서드
     init() {
         self.region = MKCoordinateRegion(
             center: CLLocationCoordinate2D(latitude: 37.7749, longitude: -122.4194),
             span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
         )
     }
-
+    
+    // 사용자 위치 업데이트
     func updateUserLocation(_ coordinate: CLLocationCoordinate2D) {
         let userLocation = Item(coordinate: coordinate, isUserLocation: true)
         annotationItems.append(userLocation)
         region.center = coordinate
+        calculateDistance(from: coordinate)
     }
-
+    
+    // 서버 위치 업데이트
     func updateServerLocation(_ coordinate: CLLocationCoordinate2D) {
         let serverLocation = Item(coordinate: coordinate, isUserLocation: false)
         annotationItems.append(serverLocation)
         serverCoordinate = coordinate
         region.center = coordinate
+        if let userLocation = annotationItems.first(where: { $0.isUserLocation })?.coordinate {
+            calculateDistance(from: userLocation)
+        }
     }
-
+    
+    // 거리 계산 메서드
+    private func calculateDistance(from userCoordinate: CLLocationCoordinate2D) {
+        guard let serverCoordinate = serverCoordinate else { return }
+        let userLocation = CLLocation(latitude: userCoordinate.latitude, longitude: userCoordinate.longitude)
+        let serverLocation = CLLocation(latitude: serverCoordinate.latitude, longitude: serverCoordinate.longitude)
+        let distance = userLocation.distance(from: serverLocation) / 1000 // km 단위로 변환
+        distanceText = String(format: "내 위치로부터 %.1f km", distance)
+    }
+    
     func fetchServerLocation() {
         guard let token = KeyChain.read()?.accessToken else {
             print("accessToken을 찾을 수 없습니다.")
             return
         }
-
+        
         let headers: HTTPHeaders = ["Authorization": "Bearer \(token)"]
         AF.request("\(Bundle.main.url)/geo", headers: headers).responseJSON { response in
             switch response.result {
@@ -62,13 +79,13 @@ class HomeViewModel: ObservableObject {
             }
         }
     }
-
+    
     func makeCall() {
         if let url = URL(string: "tel://\(phoneNumber)"), UIApplication.shared.canOpenURL(url) {
             UIApplication.shared.open(url)
         }
     }
-
+    
     func sendMessage() {
         if let url = URL(string: "sms:\(messageNumber)"), UIApplication.shared.canOpenURL(url) {
             UIApplication.shared.open(url)
@@ -80,7 +97,7 @@ class HomeViewModel: ObservableObject {
             print("accessToken을 찾을 수 없습니다.")
             return
         }
-
+        
         let headers: HTTPHeaders = ["Authorization": "Bearer \(token)"]
         AF.request("\(Bundle.main.url)/fcm", method: .post, headers: headers).responseJSON { response in
             switch response.result {
