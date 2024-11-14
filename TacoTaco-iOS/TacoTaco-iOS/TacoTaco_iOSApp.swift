@@ -1,10 +1,3 @@
-//
-//  TacoTaco_iOSApp.swift
-//  TacoTaco-iOS
-//
-//  Created by hyk on 10/28/24.
-//
-
 import SwiftUI
 import Firebase
 import FirebaseMessaging
@@ -70,25 +63,21 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         Messaging.messaging().apnsToken = deviceToken
     }
-    
 }
 
 // Cloud Messaging...
 extension AppDelegate: MessagingDelegate{
     
-    // fcm 등록 토큰을 받았을 때
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
-
-        print("토큰을 받았다")
-        // Store this token to firebase and retrieve when to send message to someone...
+        print("토큰을 받았다: \(fcmToken ?? "nil")")
+        
+        if let fcmToken = fcmToken {
+            UserDefaults.standard.set(fcmToken, forKey: "fcmToken")
+            print("토큰 저장 완료: \(fcmToken)")
+        }
+        
         let dataDict: [String: String] = ["token": fcmToken ?? ""]
-        
-        // Store token in Firestore For Sending Notifications From Server in Future...
-        
         print(dataDict)
-        
-        SignInViewModel.shared.fcm = fcmToken ?? ""
-     
     }
-}
 
+}

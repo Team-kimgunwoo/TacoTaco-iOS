@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct SignInView: View {
-    @StateObject var viewModel = SignInViewModel.shared
+    @StateObject var viewModel = SignInViewModel()
     
     var body: some View {
         VStack {
@@ -25,6 +25,7 @@ struct SignInView: View {
             
             Button {
                 viewModel.signin()
+                print(viewModel.model.params)
             } label: {
                 RoundedRectangle(cornerRadius: 15)
                     .frame(width: 309, height: 55)
@@ -45,8 +46,8 @@ struct SignInView: View {
             .padding(.bottom, 20)
             .padding(.top, 5)
         }
-        .onAppear {
-            print("느금마 \(viewModel.fcm)")
+        .onAppear() {
+            print("느금마 \(UserDefaults.standard.string(forKey: "fcmToken")!)")
         }
     }
 }

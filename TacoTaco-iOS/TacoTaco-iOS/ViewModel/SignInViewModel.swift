@@ -7,28 +7,6 @@ import FirebaseMessaging
 class SignInViewModel: ObservableObject {
     static let shared = SignInViewModel()
     @Published var model = SignInRequest()
-    @Published var fcm: String = "" {
-        didSet {
-            saveFCMTokenToFirestore()
-        }
-    }
-    
-    func saveFCMTokenToFirestore() {
-            guard let userID = KeyChain.read() else { return } // KeyChain에서 사용자 ID를 가져옴
-            let db = Firestore.firestore()
-            
-            // 사용자 ID로 Firestore 경로 설정
-            let userDocRef = db.collection("users").document(userID)
-            
-            // Firestore에 FCM 토큰 저장
-            userDocRef.setData(["fcmToken": fcm], merge: true) { error in
-                if let error = error {
-                    print("FCM 토큰 저장 중 오류 발생: \(error.localizedDescription)")
-                } else {
-                    print("FCM 토큰이 Firestore에 저장되었습니다.")
-                }
-            }
-        }
     
     func signin() {
         guard let viewController = (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.rootViewController else {return}
@@ -40,7 +18,7 @@ class SignInViewModel: ObservableObject {
             AF.request("\(Bundle.main.url)/auth/sign-in",
                        method: .post,
                        parameters: self.model.params,
-                       encoding: JSONEncoding()
+                       encoding: JSONEncoding.default
                        
             )
             .validate()
@@ -55,8 +33,11 @@ class SignInViewModel: ObservableObject {
                             
                         }
                     }
-                case .failure(_):
-                    break
+                case .failure(let error):
+                    if let data = response.data,
+                                   let errorMessage = String(data: data, encoding: .utf8) {
+                                    print("Error: \(error.localizedDescription), Response: \(errorMessage)")
+                                }
                 }
             }
         }
