@@ -7,7 +7,13 @@
 
 import Foundation
 
+struct MypageResponse: Codable {
+    let status: Int
+    let message: String
+    let data: MypageModel
+}
+
 struct MypageModel: Codable {
-    let email: String
+    let email: String?
     let name: String
 }

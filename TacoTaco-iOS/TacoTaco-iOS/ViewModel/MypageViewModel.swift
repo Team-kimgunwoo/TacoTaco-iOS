@@ -19,10 +19,10 @@ class MypageViewModel: ObservableObject {
 
         let headers: HTTPHeaders = ["Authorization": "Bearer \(token)"]
         
-        AF.request("\(Bundle.main.url)/user", method: .get, headers: headers).responseDecodable(of: MypageModel.self) { response in
+        AF.request("\(Bundle.main.url)/user", method: .get, headers: headers).responseDecodable(of: MypageResponse.self) { response in
             switch response.result {
             case .success(let data):
-                self.user = data
+                self.user = data.data
             case .failure(let error):
                 print("Error fetching user data: \(error)")
             }

@@ -46,9 +46,6 @@ struct SignInView: View {
             .padding(.bottom, 20)
             .padding(.top, 5)
         }
-        .onAppear() {
-            print("느금마 \(UserDefaults.standard.string(forKey: "fcmToken")!)")
-        }
     }
 }
 

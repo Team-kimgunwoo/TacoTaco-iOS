@@ -21,7 +21,7 @@ struct MypageView: View {
                         Text("환영합니다, \(user.name)님")
                             .font(.system(size: 23, weight: .semibold))
                             .foregroundColor(.accent)
-                        Text(user.email)
+                        Text(user.email ?? "")
                             .font(.system(size: 15, weight: .light))
                             .foregroundColor(.black)
                     } else {
