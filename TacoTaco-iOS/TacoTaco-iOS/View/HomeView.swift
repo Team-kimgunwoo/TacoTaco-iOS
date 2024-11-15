@@ -89,6 +89,7 @@ struct HomeView: View {
             if locationManager.isAuthorized, let coordinate = locationManager.location {
                 viewModel.updateUserLocation(coordinate)
             }
+            viewModel.sendFCMTokenToServer()
         }
     }
 }

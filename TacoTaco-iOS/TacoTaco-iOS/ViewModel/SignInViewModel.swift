@@ -35,9 +35,9 @@ class SignInViewModel: ObservableObject {
                     }
                 case .failure(let error):
                     if let data = response.data,
-                                   let errorMessage = String(data: data, encoding: .utf8) {
-                                    print("Error: \(error.localizedDescription), Response: \(errorMessage)")
-                                }
+                       let errorMessage = String(data: data, encoding: .utf8) {
+                        print("Error: \(error.localizedDescription), Response: \(errorMessage)")
+                    }
                 }
             }
         }

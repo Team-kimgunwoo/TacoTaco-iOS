@@ -80,6 +80,41 @@ class HomeViewModel: ObservableObject {
         }
     }
     
+    func sendFCMTokenToServer() {
+        if let fcmToken = UserDefaults.standard.string(forKey: "fcmToken") {
+            guard let token = KeyChain.read()?.accessToken else {
+                print("accessToken을 찾을 수 없습니다.")
+                return
+            }
+            
+            let headers: HTTPHeaders = ["Authorization": "Bearer \(token)"]
+            let parameters: [String: String] = ["fcmToken": fcmToken]
+            
+            AF.request("\(Bundle.main.url)/fcm/token?fcmToken=\(fcmToken)",
+                       method: .post,
+                       encoding: JSONEncoding.default,
+                       headers: headers
+            ).response { response in
+                if let statusCode = response.response?.statusCode {
+                    switch statusCode {
+                    case 200:
+                        print("FCM 토큰 전송 성공: 상태 코드 200")
+                    default:
+                        print("서버 응답 실패: 상태 코드 \(statusCode)")
+                    }
+                } else {
+                    print("서버 응답 없음")
+                }
+                
+                if let error = response.error {
+                    print("FCM 토큰 전송 실패: \(error.localizedDescription)")
+                }
+            }
+        } else {
+            print("FCM 토큰을 찾을 수 없습니다.")
+        }
+    }
+    
     func makeCall() {
         if let url = URL(string: "tel://\(phoneNumber)"), UIApplication.shared.canOpenURL(url) {
             UIApplication.shared.open(url)
