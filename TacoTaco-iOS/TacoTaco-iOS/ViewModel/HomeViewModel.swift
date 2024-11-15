@@ -26,32 +26,48 @@ class HomeViewModel: ObservableObject {
         )
     }
     
-    // 사용자 위치 업데이트
     func updateUserLocation(_ coordinate: CLLocationCoordinate2D) {
         let userLocation = Item(coordinate: coordinate, isUserLocation: true)
         annotationItems.append(userLocation)
         region.center = coordinate
         calculateDistance(from: coordinate)
+        
+        // 사용자 위치 로그
+        print("사용자 위치 업데이트: \(coordinate)")
+        print("현재 annotationItems: \(annotationItems)")
     }
-    
-    // 서버 위치 업데이트
+
     func updateServerLocation(_ coordinate: CLLocationCoordinate2D) {
-        let serverLocation = Item(coordinate: coordinate, isUserLocation: false)
-        annotationItems.append(serverLocation)
+        // 같은 위치가 이미 있을 경우 추가하지 않음
+        if !annotationItems.contains(where: { $0.coordinate.latitude == coordinate.latitude && $0.coordinate.longitude == coordinate.longitude }) {
+            let serverLocation = Item(coordinate: coordinate, isUserLocation: false)
+            annotationItems.append(serverLocation)
+        }
         serverCoordinate = coordinate
         region.center = coordinate
+
         if let userLocation = annotationItems.first(where: { $0.isUserLocation })?.coordinate {
             calculateDistance(from: userLocation)
         }
+
+        print("서버 위치 업데이트: \(coordinate)")
     }
+
     
     // 거리 계산 메서드
     private func calculateDistance(from userCoordinate: CLLocationCoordinate2D) {
-        guard let serverCoordinate = serverCoordinate else { return }
+        guard let serverCoordinate = serverCoordinate else {
+            print("서버 위치가 설정되지 않았습니다.")
+            return
+        }
+        
         let userLocation = CLLocation(latitude: userCoordinate.latitude, longitude: userCoordinate.longitude)
         let serverLocation = CLLocation(latitude: serverCoordinate.latitude, longitude: serverCoordinate.longitude)
         let distance = userLocation.distance(from: serverLocation) / 1000 // km 단위로 변환
+        
+        // 거리 계산 후 distanceText 업데이트
         distanceText = String(format: "내 위치로부터 %.1f km", distance)
+        print("계산된 거리: \(distanceText)")
     }
     
     func fetchServerLocation() {
@@ -71,6 +87,7 @@ class HomeViewModel: ObservableObject {
                    let latitudeValue = Double(latitude), let longitudeValue = Double(longitude) {
                     let coordinate = CLLocationCoordinate2D(latitude: latitudeValue, longitude: longitudeValue)
                     self.updateServerLocation(coordinate)
+                    print("서버 위치 업데이트: \(coordinate)")
                 } else {
                     print("오류: JSON에서 위도와 경도를 찾을 수 없습니다.")
                 }
