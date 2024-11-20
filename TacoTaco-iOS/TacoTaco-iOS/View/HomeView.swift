@@ -3,15 +3,11 @@ import MapKit
 import CoreLocation
 import Alamofire
 
-struct Location: Identifiable {
-    var id = UUID()
-    var coordinate: CLLocationCoordinate2D
-}
-
 struct HomeView: View {
     @StateObject private var locationManager = LocationManager()
     @StateObject private var viewModel = HomeViewModel()
     @State var showProfile: Bool = false
+    @State var emotionMessage: String = "알 수 없음"
 
     var body: some View {
         ZStack {
@@ -64,13 +60,16 @@ struct HomeView: View {
                     .shadow(radius: 10, y: 4)
                     .overlay {
                         HStack {
-                            VStack(alignment: .leading) {
+                            VStack(alignment: .leading, spacing: 10) {
                                 Text("지금 건우는?")
                                     .font(.system(size: 15, weight: .medium))
                                     .foregroundColor(.accentColor)
-                                Text("기분: \(viewModel.emotionModel.data.emotionType.isEmpty ? "알 수 없음" : viewModel.emotionModel.data.emotionType)")
-                                                        .font(.system(size: 12, weight: .light))
-                                                        .foregroundColor(.black)
+
+                                // emotionType에 따른 메시지
+                                let emotionType = viewModel.emotionModel.data.emotionType
+                                Text("\(emotionMessage(for: emotionType))")
+                                    .font(.system(size: 15, weight: .light))
+                                    .foregroundColor(.black)
                             }
                             Spacer()
                             Button { viewModel.sendTouchRequest() } label: { Image("touch") }
@@ -90,8 +89,27 @@ struct HomeView: View {
             viewModel.getEmotion()
         }
     }
-}
 
+    // Helper function for emotion message
+    private func emotionMessage(for emotionType: String) -> String {
+        switch emotionType {
+        case "WAR":
+            return "계엄령 선포!!"
+        case "BASEBALL":
+            return "야구할 사람 찾는중..."
+        case "MART":
+            return "마트갈 사람 찾는중..."
+        case "OUTING":
+            return "외출중..."
+        case "COUNSEL":
+            return "상담 하는중..."
+        case "DROP":
+            return "자퇴 고민중..."
+        default:
+            return emotionType
+        }
+    }
+}
 
 #Preview {
     NavigationView {
