@@ -52,7 +52,7 @@ struct MypageView: View {
                         .font(.system(size: 19, weight: .regular))
                 }
                 Button {
-                    
+                    viewModel.withDraw()
                 } label: {
                     Text("회원탈퇴")
                         .font(.system(size: 19, weight: .regular))
