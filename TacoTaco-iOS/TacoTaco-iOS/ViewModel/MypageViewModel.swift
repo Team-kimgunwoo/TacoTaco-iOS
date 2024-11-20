@@ -10,6 +10,13 @@ import SwiftUI
 
 class MypageViewModel: ObservableObject {
     @Published var user: MypageModel?
+    
+    func withDraw() {
+        AF.request("\(Bundle.main.url)/user", method: .delete)
+            .responseJSON { json in
+                print(json)
+            }
+    }
 
     func fetchUserData() {
         guard let token = KeyChain.read()?.accessToken else {
