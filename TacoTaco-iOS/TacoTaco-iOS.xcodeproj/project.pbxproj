@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		425C8F7F2CEDA95600422413 /* EmotionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425C8F7E2CEDA95600422413 /* EmotionModel.swift */; };
 		42C824C72CCF347500B0AEB2 /* TacoTaco_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C824C62CCF347500B0AEB2 /* TacoTaco_iOSApp.swift */; };
 		42C824C92CCF347500B0AEB2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C824C82CCF347500B0AEB2 /* ContentView.swift */; };
 		42C824CB2CCF347600B0AEB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42C824CA2CCF347600B0AEB2 /* Assets.xcassets */; };
@@ -43,6 +44,7 @@
 
 /* Begin PBXFileReference section */
 		425C8F772CE467EE00422413 /* TacoTaco-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "TacoTaco-iOS.entitlements"; sourceTree = "<group>"; };
+		425C8F7E2CEDA95600422413 /* EmotionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionModel.swift; sourceTree = "<group>"; };
 		42C824C32CCF347500B0AEB2 /* TacoTaco-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TacoTaco-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		42C824C62CCF347500B0AEB2 /* TacoTaco_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TacoTaco_iOSApp.swift; sourceTree = "<group>"; };
 		42C824C82CCF347500B0AEB2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				42C824F32CD06A6C00B0AEB2 /* StatusModel.swift */,
 				42C824F92CD06BE900B0AEB2 /* RefreshModel.swift */,
 				6074465F2CE19E6400C6D074 /* MypageModel.swift */,
+				425C8F7E2CEDA95600422413 /* EmotionModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -318,6 +321,7 @@
 				42C824DE2CCF394100B0AEB2 /* BundleExt.swift in Sources */,
 				6074465E2CE19E5500C6D074 /* MypageViewModel.swift in Sources */,
 				607446602CE19E6400C6D074 /* MypageModel.swift in Sources */,
+				425C8F7F2CEDA95600422413 /* EmotionModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,7 +456,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TacoTaco-iOS/Preview Content\"";
-				DEVELOPMENT_TEAM = ZTJ578GV68;
+				DEVELOPMENT_TEAM = H3PHX39629;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "TacoTaco-iOS/Info.plist";
@@ -468,7 +472,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com..bibiga.tacotaco;
+				PRODUCT_BUNDLE_IDENTIFIER = seounghyuk.com.taco;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -485,7 +489,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TacoTaco-iOS/Preview Content\"";
-				DEVELOPMENT_TEAM = ZTJ578GV68;
+				DEVELOPMENT_TEAM = H3PHX39629;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "TacoTaco-iOS/Info.plist";
@@ -501,7 +505,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com..bibiga.tacotaco;
+				PRODUCT_BUNDLE_IDENTIFIER = seounghyuk.com.taco;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

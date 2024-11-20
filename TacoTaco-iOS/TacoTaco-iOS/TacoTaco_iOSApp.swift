@@ -11,7 +11,7 @@ struct TacoTaco_iOSApp: App {
             NavigationView {
                 Group {
                     if KeyChain.read() != nil {
-                        SignInView()
+                        HomeView()
                     } else {
                         SignInView()
                     }

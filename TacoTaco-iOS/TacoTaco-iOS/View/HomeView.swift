@@ -68,9 +68,9 @@ struct HomeView: View {
                                 Text("지금 건우는?")
                                     .font(.system(size: 15, weight: .medium))
                                     .foregroundColor(.accentColor)
-                                Text(viewModel.distanceText)
-                                    .font(.system(size: 12, weight: .light))
-                                    .foregroundColor(.black)
+                                Text("기분: \(viewModel.emotionModel.data.emotionType.isEmpty ? "알 수 없음" : viewModel.emotionModel.data.emotionType)")
+                                                        .font(.system(size: 12, weight: .light))
+                                                        .foregroundColor(.black)
                             }
                             Spacer()
                             Button { viewModel.sendTouchRequest() } label: { Image("touch") }
@@ -86,10 +86,8 @@ struct HomeView: View {
                 viewModel.updateUserLocation(coordinate)
             }
             viewModel.fetchServerLocation()
-            if locationManager.isAuthorized, let coordinate = locationManager.location {
-                viewModel.updateUserLocation(coordinate)
-            }
             viewModel.sendFCMTokenToServer()
+            viewModel.getEmotion()
         }
     }
 }
