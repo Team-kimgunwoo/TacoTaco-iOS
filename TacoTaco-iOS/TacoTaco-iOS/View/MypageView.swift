@@ -38,9 +38,7 @@ struct MypageView: View {
                 .scaledToFit()
                 .frame(width: 159)
             VStack(alignment: .leading, spacing: 8) {
-                Button {
-                    
-                } label: {
+                Link(destination: URL(string: "https://luisgunkim0642.notion.site/TacoTaco-1423df74cdba8096810aea333d129f9e")!) {
                     Text("개인정보 처리 방침")
                         .font(.system(size: 19, weight: .regular))
                         .foregroundColor(.black)
